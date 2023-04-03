@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { routesConfig } from "./09-useContext/routesConfig";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // import { TodoApp } from "./08-useReducer/TodoApp";
 // import "./08-useReducer/intro-reducer";
@@ -15,14 +16,14 @@ import { BrowserRouter } from "react-router-dom";
 // import { Memorize } from "./06-memos/Memorize";
 // import { MemoHook } from "./07-useMemo/MemoHook";
 // import { CallbackHook } from "./06-memos/CallbackHook";
-import { MainApp } from "./09-useContext/MainApp";
+// import { MainApp } from "./09-useContext/MainApp";
 
 import "./index.css";
 
+const router = createBrowserRouter(routesConfig);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    {/* <React.StrictMode> */}
-    <MainApp />
-    {/* </React.StrictMode> */}
-  </BrowserRouter>
+  // <React.StrictMode>
+  <RouterProvider router={router} />
+  // </React.StrictMode>
 );

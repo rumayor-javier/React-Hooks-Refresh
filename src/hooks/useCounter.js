@@ -1,17 +1,17 @@
 import { useState } from "react"
 
 
-export const useCounter = (initialValue = 10, minimalValue = 0) => {
+export const useCounter = (initialValue = 10) => {
 
     const [counter, setCounter] = useState(initialValue)
 
-    const increment = () => {
-        setCounter(counter + 1)
+    const increment = (value = 1) => {
+        setCounter(current => current + value)
     }
 
-    const decrement = () => {
-        if (counter === minimalValue) return
-        setCounter(counter - 1)
+    const decrement = (value = 1) => {
+        if (counter === 0) return
+        setCounter(current => current - value)
     }
 
     const reset = () => {
